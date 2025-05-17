@@ -30,10 +30,7 @@ case ${RUSTTARGET} in
 
 "x86_64-unknown-linux-musl") ;;
 
-"x86_64-unknown-linux-gnu") 
-error "x86_64-unknown-linux-gnu is not supported: please use x86_64-unknown-linux-musl for a statically linked c library"
-exit 1
-;;
+"x86_64-unknown-linux-gnu") ;;
 
 "wasm32-wasi") ;;
 
@@ -45,8 +42,8 @@ export LIBZ_SYS_STATIC=1
 mkdir -p /.cargo
 cat > /.cargo/config.toml << EOF
 [target.x86_64-apple-darwin]
-linker = "/opt/osxcross/target/bin/x86_64-apple-darwin14-clang"
-ar = "/opt/osxcross/target/bin/x86_64-apple-darwin14-ar"
+linker = "/opt/osxcross/target/bin/x86_64-apple-darwin16-clang"
+ar = "/opt/osxcross/target/bin/x86_64-apple-darwin16-ar"
 EOF
 ;;
 

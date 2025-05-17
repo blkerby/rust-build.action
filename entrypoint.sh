@@ -141,14 +141,6 @@ for ARCHIVE_TYPE in $ARCHIVE_TYPES; do
         -H 'Content-Type: application/octet-stream' \
         -H "Authorization: Bearer ${GITHUB_TOKEN}" \
         "${UPLOAD_URL}?name=${FILE_NAME}"
-
-      curl \
-        --fail-with-body -sS \
-        -X POST \
-        --data-binary @"$CHECKSUM_FILE_NAME" \
-        -H 'Content-Type: text/plain' \
-        -H "Authorization: Bearer ${GITHUB_TOKEN}" \
-        "${UPLOAD_URL}?name=${CHECKSUM_FILE_NAME}"
     fi
   fi
 done
