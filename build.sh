@@ -60,8 +60,9 @@ if [ "$TOOLCHAIN_VERSION" != "" ]; then
 fi
 rustup target add "$RUSTTARGET" >&2
 
-
-BINARIES="$(cargo read-manifest | jq -r ".targets[] | select(.kind[] | contains(\"bin\")) | .name")"
+if [ -z "${BINARIES}" ]; then
+  BINARIES="$(cargo read-manifest | jq -r ".targets[] | select(.kind[] | contains(\"bin\")) | .name")"
+fi
 
 OUTPUT_LIST=""
 for BINARY in $BINARIES; do
