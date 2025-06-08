@@ -17,4 +17,5 @@ COPY common.sh /common.sh
 
 RUN chmod 555 /entrypoint.sh /build.sh /common.sh
 
+ENV OPENSSL_LIB_DIR=/usr/lib/x86_64-linux-gnu
 ENTRYPOINT ["/entrypoint.sh"]
